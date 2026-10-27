@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Welcome to MealMuse</h1>
+    <p>Decide what to eat based on what you have, what you can spend, and your goals.</p>
+    <ol>
+        <li>Set up your <a href="{{ url_for('profile') }}">profile</a></li>
+        <li>Add what's in your <a href="{{ url_for('inventory') }}">inventory</a></li>
+        <li>Set your <a href="{{ url_for('budget') }}">budget</a></li>
+        <li>Get <a href="{{ url_for('suggest') }}">meal suggestions</a></li>
+    </ol>
+{% endblock %}

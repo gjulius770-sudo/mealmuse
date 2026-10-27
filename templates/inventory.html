@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Your Inventory</h1>
+
+    <form method="POST">
+        <label>Ingredient</label>
+        <input type="text" name="ingredient_name" required>
+
+        <label>Quantity</label>
+        <input type="number" name="quantity" step="0.1" value="1">
+
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for item in items %}
+            <li>{{ item.ingredient.name }} - {{ item.quantity }}</li>
+        {% else %}
+            <li>Nothing added yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

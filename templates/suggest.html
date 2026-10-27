@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Meal Suggestions</h1>
+
+    <form method="GET">
+        <label>Meal of the day</label>
+        <select name="meal_of_day">
+            <option value="breakfast" {% if meal_of_day == 'breakfast' %}selected{% endif %}>Breakfast</option>
+            <option value="lunch" {% if meal_of_day == 'lunch' %}selected{% endif %}>Lunch</option>
+            <option value="supper" {% if meal_of_day == 'supper' %}selected{% endif %}>Supper</option>
+        </select>
+        <button type="submit">Get suggestions</button>
+    </form>
+
+    <ul>
+        {% for meal in meals %}
+            <li>
+                {{ meal.name }} - estimated cost: {{ meal.estimated_cost }}
+                <a href="{{ url_for('log_history', meal_id=meal.id, status='cooked') }}">Mark cooked</a>
+                <a href="{{ url_for('log_history', meal_id=meal.id, status='skipped') }}">Skip</a>
+            </li>
+        {% else %}
+            <li>No meals match your inventory and budget yet. Try adding more ingredients or meals.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

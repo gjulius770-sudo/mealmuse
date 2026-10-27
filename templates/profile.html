@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Your Profile</h1>
+
+    <form method="POST">
+        <label>Name</label>
+        <input type="text" name="name" value="{{ user.name if user else '' }}" required>
+
+        <label>Dietary goal</label>
+        <select name="dietary_goal">
+            <option value="none" {% if user and user.dietary_goal == 'none' %}selected{% endif %}>None</option>
+            <option value="fitness" {% if user and user.dietary_goal == 'fitness' %}selected{% endif %}>Fitness</option>
+            <option value="weight loss" {% if user and user.dietary_goal == 'weight loss' %}selected{% endif %}>Weight loss</option>
+            <option value="general health" {% if user and user.dietary_goal == 'general health' %}selected{% endif %}>General health</option>
+        </select>
+
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}

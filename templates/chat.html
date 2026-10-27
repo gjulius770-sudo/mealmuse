@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Ask MealMuse</h1>
+    <p>Example: "I have 300 on a budget, what can I cook?"</p>
+
+    <form method="POST">
+        <label>Meal of the day</label>
+        <select name="meal_of_day">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="supper">Supper</option>
+        </select>
+
+        <label>Your message</label>
+        <textarea name="message" rows="3" required></textarea>
+
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if reply %}
+        <h2>Reply</h2>
+        <p>{{ reply }}</p>
+    {% endif %}
+{% endblock %}

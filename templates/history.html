@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Meal History</h1>
+    <ul>
+        {% for entry in entries %}
+            <li>{{ entry.date }} - meal #{{ entry.meal_id }} - {{ entry.status }}</li>
+        {% else %}
+            <li>No meal history yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
