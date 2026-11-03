@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MealMuse</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <header>
+        <h1>MealMuse</h1>
+    </header>
+
     <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('profile') }}">Profile</a>
-        <a href="{{ url_for('inventory') }}">Inventory</a>
-        <a href="{{ url_for('budget') }}">Budget</a>
-        <a href="{{ url_for('suggest') }}">Suggestions</a>
-        <a href="{{ url_for('chat') }}">Chat</a>
-        <a href="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('home') }}" class="{{ 'on' if request.endpoint == 'home' }}">Home</a>
+        <a href="{{ url_for('profile') }}" class="{{ 'on' if request.endpoint == 'profile' }}">Profile</a>
+        <a href="{{ url_for('inventory') }}" class="{{ 'on' if request.endpoint == 'inventory' }}">Inventory</a>
+        <a href="{{ url_for('budget') }}" class="{{ 'on' if request.endpoint == 'budget' }}">Budget</a>
+        <a href="{{ url_for('suggest') }}" class="{{ 'on' if request.endpoint == 'suggest' }}">Suggestions</a>
+        <a href="{{ url_for('chat') }}" class="{{ 'on' if request.endpoint == 'chat' }}">Chat</a>
+        <a href="{{ url_for('history') }}" class="{{ 'on' if request.endpoint == 'history' }}">History</a>
     </nav>
 
     <main>
